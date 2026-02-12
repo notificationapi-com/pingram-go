@@ -71,10 +71,22 @@ type LogsGetResponseLogsInner struct {
 	EmailClickedLinkTags         *string  `json:"email_clicked_link_tags,omitempty"`
 	EmailInboundAt               *string  `json:"email_inbound_at,omitempty"`
 	EmailInboundFrom             *string  `json:"email_inbound_from,omitempty"`
+	EmailInboundFromName         *string  `json:"email_inbound_from_name,omitempty"`
+	EmailInboundTo               *string  `json:"email_inbound_to,omitempty"`
+	EmailInboundCc               *string  `json:"email_inbound_cc,omitempty"`
+	EmailInboundBcc              *string  `json:"email_inbound_bcc,omitempty"`
+	EmailInboundReplyTo          *string  `json:"email_inbound_reply_to,omitempty"`
+	EmailInboundInbox            *string  `json:"email_inbound_inbox,omitempty"`
 	EmailInboundSubject          *string  `json:"email_inbound_subject,omitempty"`
 	EmailInboundBodyText         *string  `json:"email_inbound_body_text,omitempty"`
 	EmailInboundBodyHtml         *string  `json:"email_inbound_body_html,omitempty"`
+	EmailInboundHasAttachments   *bool    `json:"email_inbound_has_attachments,omitempty"`
+	EmailInboundAttachmentCount  *float32 `json:"email_inbound_attachment_count,omitempty"`
+	EmailInboundMessageId        *string  `json:"email_inbound_message_id,omitempty"`
+	EmailInboundInReplyTo        *string  `json:"email_inbound_in_reply_to,omitempty"`
+	EmailInboundReferences       *string  `json:"email_inbound_references,omitempty"`
 	EmailInboundWebhookDelivered *bool    `json:"email_inbound_webhook_delivered,omitempty"`
+	EmailInboundResolutionType   *string  `json:"email_inbound_resolution_type,omitempty"`
 	SmsInboundAt                 *string  `json:"sms_inbound_at,omitempty"`
 	SmsInboundFrom               *string  `json:"sms_inbound_from,omitempty"`
 	SmsInboundText               *string  `json:"sms_inbound_text,omitempty"`
@@ -1762,6 +1774,198 @@ func (o *LogsGetResponseLogsInner) SetEmailInboundFrom(v string) {
 	o.EmailInboundFrom = &v
 }
 
+// GetEmailInboundFromName returns the EmailInboundFromName field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundFromName() string {
+	if o == nil || IsNil(o.EmailInboundFromName) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundFromName
+}
+
+// GetEmailInboundFromNameOk returns a tuple with the EmailInboundFromName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundFromNameOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundFromName) {
+		return nil, false
+	}
+	return o.EmailInboundFromName, true
+}
+
+// HasEmailInboundFromName returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundFromName() bool {
+	if o != nil && !IsNil(o.EmailInboundFromName) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundFromName gets a reference to the given string and assigns it to the EmailInboundFromName field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundFromName(v string) {
+	o.EmailInboundFromName = &v
+}
+
+// GetEmailInboundTo returns the EmailInboundTo field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundTo() string {
+	if o == nil || IsNil(o.EmailInboundTo) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundTo
+}
+
+// GetEmailInboundToOk returns a tuple with the EmailInboundTo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundToOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundTo) {
+		return nil, false
+	}
+	return o.EmailInboundTo, true
+}
+
+// HasEmailInboundTo returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundTo() bool {
+	if o != nil && !IsNil(o.EmailInboundTo) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundTo gets a reference to the given string and assigns it to the EmailInboundTo field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundTo(v string) {
+	o.EmailInboundTo = &v
+}
+
+// GetEmailInboundCc returns the EmailInboundCc field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundCc() string {
+	if o == nil || IsNil(o.EmailInboundCc) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundCc
+}
+
+// GetEmailInboundCcOk returns a tuple with the EmailInboundCc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundCcOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundCc) {
+		return nil, false
+	}
+	return o.EmailInboundCc, true
+}
+
+// HasEmailInboundCc returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundCc() bool {
+	if o != nil && !IsNil(o.EmailInboundCc) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundCc gets a reference to the given string and assigns it to the EmailInboundCc field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundCc(v string) {
+	o.EmailInboundCc = &v
+}
+
+// GetEmailInboundBcc returns the EmailInboundBcc field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundBcc() string {
+	if o == nil || IsNil(o.EmailInboundBcc) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundBcc
+}
+
+// GetEmailInboundBccOk returns a tuple with the EmailInboundBcc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundBccOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundBcc) {
+		return nil, false
+	}
+	return o.EmailInboundBcc, true
+}
+
+// HasEmailInboundBcc returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundBcc() bool {
+	if o != nil && !IsNil(o.EmailInboundBcc) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundBcc gets a reference to the given string and assigns it to the EmailInboundBcc field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundBcc(v string) {
+	o.EmailInboundBcc = &v
+}
+
+// GetEmailInboundReplyTo returns the EmailInboundReplyTo field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundReplyTo() string {
+	if o == nil || IsNil(o.EmailInboundReplyTo) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundReplyTo
+}
+
+// GetEmailInboundReplyToOk returns a tuple with the EmailInboundReplyTo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundReplyToOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundReplyTo) {
+		return nil, false
+	}
+	return o.EmailInboundReplyTo, true
+}
+
+// HasEmailInboundReplyTo returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundReplyTo() bool {
+	if o != nil && !IsNil(o.EmailInboundReplyTo) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundReplyTo gets a reference to the given string and assigns it to the EmailInboundReplyTo field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundReplyTo(v string) {
+	o.EmailInboundReplyTo = &v
+}
+
+// GetEmailInboundInbox returns the EmailInboundInbox field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundInbox() string {
+	if o == nil || IsNil(o.EmailInboundInbox) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundInbox
+}
+
+// GetEmailInboundInboxOk returns a tuple with the EmailInboundInbox field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundInboxOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundInbox) {
+		return nil, false
+	}
+	return o.EmailInboundInbox, true
+}
+
+// HasEmailInboundInbox returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundInbox() bool {
+	if o != nil && !IsNil(o.EmailInboundInbox) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundInbox gets a reference to the given string and assigns it to the EmailInboundInbox field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundInbox(v string) {
+	o.EmailInboundInbox = &v
+}
+
 // GetEmailInboundSubject returns the EmailInboundSubject field value if set, zero value otherwise.
 func (o *LogsGetResponseLogsInner) GetEmailInboundSubject() string {
 	if o == nil || IsNil(o.EmailInboundSubject) {
@@ -1858,6 +2062,166 @@ func (o *LogsGetResponseLogsInner) SetEmailInboundBodyHtml(v string) {
 	o.EmailInboundBodyHtml = &v
 }
 
+// GetEmailInboundHasAttachments returns the EmailInboundHasAttachments field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundHasAttachments() bool {
+	if o == nil || IsNil(o.EmailInboundHasAttachments) {
+		var ret bool
+		return ret
+	}
+	return *o.EmailInboundHasAttachments
+}
+
+// GetEmailInboundHasAttachmentsOk returns a tuple with the EmailInboundHasAttachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundHasAttachmentsOk() (*bool, bool) {
+	if o == nil || IsNil(o.EmailInboundHasAttachments) {
+		return nil, false
+	}
+	return o.EmailInboundHasAttachments, true
+}
+
+// HasEmailInboundHasAttachments returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundHasAttachments() bool {
+	if o != nil && !IsNil(o.EmailInboundHasAttachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundHasAttachments gets a reference to the given bool and assigns it to the EmailInboundHasAttachments field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundHasAttachments(v bool) {
+	o.EmailInboundHasAttachments = &v
+}
+
+// GetEmailInboundAttachmentCount returns the EmailInboundAttachmentCount field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundAttachmentCount() float32 {
+	if o == nil || IsNil(o.EmailInboundAttachmentCount) {
+		var ret float32
+		return ret
+	}
+	return *o.EmailInboundAttachmentCount
+}
+
+// GetEmailInboundAttachmentCountOk returns a tuple with the EmailInboundAttachmentCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundAttachmentCountOk() (*float32, bool) {
+	if o == nil || IsNil(o.EmailInboundAttachmentCount) {
+		return nil, false
+	}
+	return o.EmailInboundAttachmentCount, true
+}
+
+// HasEmailInboundAttachmentCount returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundAttachmentCount() bool {
+	if o != nil && !IsNil(o.EmailInboundAttachmentCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundAttachmentCount gets a reference to the given float32 and assigns it to the EmailInboundAttachmentCount field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundAttachmentCount(v float32) {
+	o.EmailInboundAttachmentCount = &v
+}
+
+// GetEmailInboundMessageId returns the EmailInboundMessageId field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundMessageId() string {
+	if o == nil || IsNil(o.EmailInboundMessageId) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundMessageId
+}
+
+// GetEmailInboundMessageIdOk returns a tuple with the EmailInboundMessageId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundMessageIdOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundMessageId) {
+		return nil, false
+	}
+	return o.EmailInboundMessageId, true
+}
+
+// HasEmailInboundMessageId returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundMessageId() bool {
+	if o != nil && !IsNil(o.EmailInboundMessageId) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundMessageId gets a reference to the given string and assigns it to the EmailInboundMessageId field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundMessageId(v string) {
+	o.EmailInboundMessageId = &v
+}
+
+// GetEmailInboundInReplyTo returns the EmailInboundInReplyTo field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundInReplyTo() string {
+	if o == nil || IsNil(o.EmailInboundInReplyTo) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundInReplyTo
+}
+
+// GetEmailInboundInReplyToOk returns a tuple with the EmailInboundInReplyTo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundInReplyToOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundInReplyTo) {
+		return nil, false
+	}
+	return o.EmailInboundInReplyTo, true
+}
+
+// HasEmailInboundInReplyTo returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundInReplyTo() bool {
+	if o != nil && !IsNil(o.EmailInboundInReplyTo) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundInReplyTo gets a reference to the given string and assigns it to the EmailInboundInReplyTo field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundInReplyTo(v string) {
+	o.EmailInboundInReplyTo = &v
+}
+
+// GetEmailInboundReferences returns the EmailInboundReferences field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundReferences() string {
+	if o == nil || IsNil(o.EmailInboundReferences) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundReferences
+}
+
+// GetEmailInboundReferencesOk returns a tuple with the EmailInboundReferences field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundReferencesOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundReferences) {
+		return nil, false
+	}
+	return o.EmailInboundReferences, true
+}
+
+// HasEmailInboundReferences returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundReferences() bool {
+	if o != nil && !IsNil(o.EmailInboundReferences) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundReferences gets a reference to the given string and assigns it to the EmailInboundReferences field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundReferences(v string) {
+	o.EmailInboundReferences = &v
+}
+
 // GetEmailInboundWebhookDelivered returns the EmailInboundWebhookDelivered field value if set, zero value otherwise.
 func (o *LogsGetResponseLogsInner) GetEmailInboundWebhookDelivered() bool {
 	if o == nil || IsNil(o.EmailInboundWebhookDelivered) {
@@ -1888,6 +2252,38 @@ func (o *LogsGetResponseLogsInner) HasEmailInboundWebhookDelivered() bool {
 // SetEmailInboundWebhookDelivered gets a reference to the given bool and assigns it to the EmailInboundWebhookDelivered field.
 func (o *LogsGetResponseLogsInner) SetEmailInboundWebhookDelivered(v bool) {
 	o.EmailInboundWebhookDelivered = &v
+}
+
+// GetEmailInboundResolutionType returns the EmailInboundResolutionType field value if set, zero value otherwise.
+func (o *LogsGetResponseLogsInner) GetEmailInboundResolutionType() string {
+	if o == nil || IsNil(o.EmailInboundResolutionType) {
+		var ret string
+		return ret
+	}
+	return *o.EmailInboundResolutionType
+}
+
+// GetEmailInboundResolutionTypeOk returns a tuple with the EmailInboundResolutionType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogsGetResponseLogsInner) GetEmailInboundResolutionTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailInboundResolutionType) {
+		return nil, false
+	}
+	return o.EmailInboundResolutionType, true
+}
+
+// HasEmailInboundResolutionType returns a boolean if a field has been set.
+func (o *LogsGetResponseLogsInner) HasEmailInboundResolutionType() bool {
+	if o != nil && !IsNil(o.EmailInboundResolutionType) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailInboundResolutionType gets a reference to the given string and assigns it to the EmailInboundResolutionType field.
+func (o *LogsGetResponseLogsInner) SetEmailInboundResolutionType(v string) {
+	o.EmailInboundResolutionType = &v
 }
 
 // GetSmsInboundAt returns the SmsInboundAt field value if set, zero value otherwise.
@@ -4606,6 +5002,24 @@ func (o LogsGetResponseLogsInner) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EmailInboundFrom) {
 		toSerialize["email_inbound_from"] = o.EmailInboundFrom
 	}
+	if !IsNil(o.EmailInboundFromName) {
+		toSerialize["email_inbound_from_name"] = o.EmailInboundFromName
+	}
+	if !IsNil(o.EmailInboundTo) {
+		toSerialize["email_inbound_to"] = o.EmailInboundTo
+	}
+	if !IsNil(o.EmailInboundCc) {
+		toSerialize["email_inbound_cc"] = o.EmailInboundCc
+	}
+	if !IsNil(o.EmailInboundBcc) {
+		toSerialize["email_inbound_bcc"] = o.EmailInboundBcc
+	}
+	if !IsNil(o.EmailInboundReplyTo) {
+		toSerialize["email_inbound_reply_to"] = o.EmailInboundReplyTo
+	}
+	if !IsNil(o.EmailInboundInbox) {
+		toSerialize["email_inbound_inbox"] = o.EmailInboundInbox
+	}
 	if !IsNil(o.EmailInboundSubject) {
 		toSerialize["email_inbound_subject"] = o.EmailInboundSubject
 	}
@@ -4615,8 +5029,26 @@ func (o LogsGetResponseLogsInner) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EmailInboundBodyHtml) {
 		toSerialize["email_inbound_body_html"] = o.EmailInboundBodyHtml
 	}
+	if !IsNil(o.EmailInboundHasAttachments) {
+		toSerialize["email_inbound_has_attachments"] = o.EmailInboundHasAttachments
+	}
+	if !IsNil(o.EmailInboundAttachmentCount) {
+		toSerialize["email_inbound_attachment_count"] = o.EmailInboundAttachmentCount
+	}
+	if !IsNil(o.EmailInboundMessageId) {
+		toSerialize["email_inbound_message_id"] = o.EmailInboundMessageId
+	}
+	if !IsNil(o.EmailInboundInReplyTo) {
+		toSerialize["email_inbound_in_reply_to"] = o.EmailInboundInReplyTo
+	}
+	if !IsNil(o.EmailInboundReferences) {
+		toSerialize["email_inbound_references"] = o.EmailInboundReferences
+	}
 	if !IsNil(o.EmailInboundWebhookDelivered) {
 		toSerialize["email_inbound_webhook_delivered"] = o.EmailInboundWebhookDelivered
+	}
+	if !IsNil(o.EmailInboundResolutionType) {
+		toSerialize["email_inbound_resolution_type"] = o.EmailInboundResolutionType
 	}
 	if !IsNil(o.SmsInboundAt) {
 		toSerialize["sms_inbound_at"] = o.SmsInboundAt
