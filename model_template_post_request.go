@@ -11,6 +11,7 @@ API version: 1.0.0
 package pingram
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -18,10 +19,44 @@ import (
 // checks if the TemplatePostRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TemplatePostRequest{}
 
-// TemplatePostRequest struct for TemplatePostRequest
+// TemplatePostRequest Request body for creating a template. Include templateId (required) plus any channel-specific fields for the channel in the path. Which fields apply depends on the channel (EMAIL, INAPP_WEB, SMS, PUSH, etc.).
 type TemplatePostRequest struct {
-	TemplateId           string `json:"templateId"`
-	AdditionalProperties map[string]interface{}
+	// Unique ID for this template within the notification and channel. Required.
+	TemplateId string `json:"templateId"`
+	// HTML body of the email.
+	Html *string `json:"html,omitempty"`
+	// Preview text (e.g. for inbox).
+	PreviewText *string `json:"previewText,omitempty"`
+	// Internal editor representation of the email content (e.g. Bee or Redactor JSON). Used for editing and component embedding; the actual email sent to recipients uses the html field.
+	Internal *string `json:"internal,omitempty"`
+	// Email subject line.
+	Subject *string `json:"subject,omitempty"`
+	// Sender display name.
+	SenderName *string `json:"senderName,omitempty"`
+	// Sender email address.
+	SenderEmail *string `json:"senderEmail,omitempty"`
+	// Migration metadata (e.g. from template migration).
+	Migration *string `json:"migration,omitempty"`
+	// Notification title (in-app).
+	Title *string `json:"title,omitempty"`
+	// URL to open when the user taps the notification.
+	RedirectURL *string `json:"redirectURL,omitempty"`
+	// Image URL shown in the in-app notification.
+	ImageURL *string                     `json:"imageURL,omitempty"`
+	Instant  *TemplatePostRequestInstant `json:"instant,omitempty"`
+	Batch    *TemplatePostRequestBatch   `json:"batch,omitempty"`
+	// Message text (SMS or call).
+	Text *string `json:"text,omitempty"`
+	// Push notification body text. (title is shared with INAPP_WEB above.)
+	Message *string `json:"message,omitempty"`
+	// Web push: icon URL. Slack: bot icon (emoji or URL).
+	Icon *string `json:"icon,omitempty"`
+	// Web push: URL to open when the notification is clicked.
+	Url *string `json:"url,omitempty"`
+	// Slack message blocks (optional).
+	Blocks []map[string]interface{} `json:"blocks,omitempty"`
+	// Slack bot username.
+	Username *string `json:"username,omitempty"`
 }
 
 type _TemplatePostRequest TemplatePostRequest
@@ -68,6 +103,582 @@ func (o *TemplatePostRequest) SetTemplateId(v string) {
 	o.TemplateId = v
 }
 
+// GetHtml returns the Html field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetHtml() string {
+	if o == nil || IsNil(o.Html) {
+		var ret string
+		return ret
+	}
+	return *o.Html
+}
+
+// GetHtmlOk returns a tuple with the Html field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetHtmlOk() (*string, bool) {
+	if o == nil || IsNil(o.Html) {
+		return nil, false
+	}
+	return o.Html, true
+}
+
+// HasHtml returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasHtml() bool {
+	if o != nil && !IsNil(o.Html) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtml gets a reference to the given string and assigns it to the Html field.
+func (o *TemplatePostRequest) SetHtml(v string) {
+	o.Html = &v
+}
+
+// GetPreviewText returns the PreviewText field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetPreviewText() string {
+	if o == nil || IsNil(o.PreviewText) {
+		var ret string
+		return ret
+	}
+	return *o.PreviewText
+}
+
+// GetPreviewTextOk returns a tuple with the PreviewText field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetPreviewTextOk() (*string, bool) {
+	if o == nil || IsNil(o.PreviewText) {
+		return nil, false
+	}
+	return o.PreviewText, true
+}
+
+// HasPreviewText returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasPreviewText() bool {
+	if o != nil && !IsNil(o.PreviewText) {
+		return true
+	}
+
+	return false
+}
+
+// SetPreviewText gets a reference to the given string and assigns it to the PreviewText field.
+func (o *TemplatePostRequest) SetPreviewText(v string) {
+	o.PreviewText = &v
+}
+
+// GetInternal returns the Internal field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetInternal() string {
+	if o == nil || IsNil(o.Internal) {
+		var ret string
+		return ret
+	}
+	return *o.Internal
+}
+
+// GetInternalOk returns a tuple with the Internal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetInternalOk() (*string, bool) {
+	if o == nil || IsNil(o.Internal) {
+		return nil, false
+	}
+	return o.Internal, true
+}
+
+// HasInternal returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasInternal() bool {
+	if o != nil && !IsNil(o.Internal) {
+		return true
+	}
+
+	return false
+}
+
+// SetInternal gets a reference to the given string and assigns it to the Internal field.
+func (o *TemplatePostRequest) SetInternal(v string) {
+	o.Internal = &v
+}
+
+// GetSubject returns the Subject field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetSubject() string {
+	if o == nil || IsNil(o.Subject) {
+		var ret string
+		return ret
+	}
+	return *o.Subject
+}
+
+// GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetSubjectOk() (*string, bool) {
+	if o == nil || IsNil(o.Subject) {
+		return nil, false
+	}
+	return o.Subject, true
+}
+
+// HasSubject returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasSubject() bool {
+	if o != nil && !IsNil(o.Subject) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubject gets a reference to the given string and assigns it to the Subject field.
+func (o *TemplatePostRequest) SetSubject(v string) {
+	o.Subject = &v
+}
+
+// GetSenderName returns the SenderName field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetSenderName() string {
+	if o == nil || IsNil(o.SenderName) {
+		var ret string
+		return ret
+	}
+	return *o.SenderName
+}
+
+// GetSenderNameOk returns a tuple with the SenderName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetSenderNameOk() (*string, bool) {
+	if o == nil || IsNil(o.SenderName) {
+		return nil, false
+	}
+	return o.SenderName, true
+}
+
+// HasSenderName returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasSenderName() bool {
+	if o != nil && !IsNil(o.SenderName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSenderName gets a reference to the given string and assigns it to the SenderName field.
+func (o *TemplatePostRequest) SetSenderName(v string) {
+	o.SenderName = &v
+}
+
+// GetSenderEmail returns the SenderEmail field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetSenderEmail() string {
+	if o == nil || IsNil(o.SenderEmail) {
+		var ret string
+		return ret
+	}
+	return *o.SenderEmail
+}
+
+// GetSenderEmailOk returns a tuple with the SenderEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetSenderEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.SenderEmail) {
+		return nil, false
+	}
+	return o.SenderEmail, true
+}
+
+// HasSenderEmail returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasSenderEmail() bool {
+	if o != nil && !IsNil(o.SenderEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetSenderEmail gets a reference to the given string and assigns it to the SenderEmail field.
+func (o *TemplatePostRequest) SetSenderEmail(v string) {
+	o.SenderEmail = &v
+}
+
+// GetMigration returns the Migration field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetMigration() string {
+	if o == nil || IsNil(o.Migration) {
+		var ret string
+		return ret
+	}
+	return *o.Migration
+}
+
+// GetMigrationOk returns a tuple with the Migration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetMigrationOk() (*string, bool) {
+	if o == nil || IsNil(o.Migration) {
+		return nil, false
+	}
+	return o.Migration, true
+}
+
+// HasMigration returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasMigration() bool {
+	if o != nil && !IsNil(o.Migration) {
+		return true
+	}
+
+	return false
+}
+
+// SetMigration gets a reference to the given string and assigns it to the Migration field.
+func (o *TemplatePostRequest) SetMigration(v string) {
+	o.Migration = &v
+}
+
+// GetTitle returns the Title field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetTitle() string {
+	if o == nil || IsNil(o.Title) {
+		var ret string
+		return ret
+	}
+	return *o.Title
+}
+
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetTitleOk() (*string, bool) {
+	if o == nil || IsNil(o.Title) {
+		return nil, false
+	}
+	return o.Title, true
+}
+
+// HasTitle returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
+func (o *TemplatePostRequest) SetTitle(v string) {
+	o.Title = &v
+}
+
+// GetRedirectURL returns the RedirectURL field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetRedirectURL() string {
+	if o == nil || IsNil(o.RedirectURL) {
+		var ret string
+		return ret
+	}
+	return *o.RedirectURL
+}
+
+// GetRedirectURLOk returns a tuple with the RedirectURL field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetRedirectURLOk() (*string, bool) {
+	if o == nil || IsNil(o.RedirectURL) {
+		return nil, false
+	}
+	return o.RedirectURL, true
+}
+
+// HasRedirectURL returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasRedirectURL() bool {
+	if o != nil && !IsNil(o.RedirectURL) {
+		return true
+	}
+
+	return false
+}
+
+// SetRedirectURL gets a reference to the given string and assigns it to the RedirectURL field.
+func (o *TemplatePostRequest) SetRedirectURL(v string) {
+	o.RedirectURL = &v
+}
+
+// GetImageURL returns the ImageURL field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetImageURL() string {
+	if o == nil || IsNil(o.ImageURL) {
+		var ret string
+		return ret
+	}
+	return *o.ImageURL
+}
+
+// GetImageURLOk returns a tuple with the ImageURL field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetImageURLOk() (*string, bool) {
+	if o == nil || IsNil(o.ImageURL) {
+		return nil, false
+	}
+	return o.ImageURL, true
+}
+
+// HasImageURL returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasImageURL() bool {
+	if o != nil && !IsNil(o.ImageURL) {
+		return true
+	}
+
+	return false
+}
+
+// SetImageURL gets a reference to the given string and assigns it to the ImageURL field.
+func (o *TemplatePostRequest) SetImageURL(v string) {
+	o.ImageURL = &v
+}
+
+// GetInstant returns the Instant field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetInstant() TemplatePostRequestInstant {
+	if o == nil || IsNil(o.Instant) {
+		var ret TemplatePostRequestInstant
+		return ret
+	}
+	return *o.Instant
+}
+
+// GetInstantOk returns a tuple with the Instant field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetInstantOk() (*TemplatePostRequestInstant, bool) {
+	if o == nil || IsNil(o.Instant) {
+		return nil, false
+	}
+	return o.Instant, true
+}
+
+// HasInstant returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasInstant() bool {
+	if o != nil && !IsNil(o.Instant) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstant gets a reference to the given TemplatePostRequestInstant and assigns it to the Instant field.
+func (o *TemplatePostRequest) SetInstant(v TemplatePostRequestInstant) {
+	o.Instant = &v
+}
+
+// GetBatch returns the Batch field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetBatch() TemplatePostRequestBatch {
+	if o == nil || IsNil(o.Batch) {
+		var ret TemplatePostRequestBatch
+		return ret
+	}
+	return *o.Batch
+}
+
+// GetBatchOk returns a tuple with the Batch field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetBatchOk() (*TemplatePostRequestBatch, bool) {
+	if o == nil || IsNil(o.Batch) {
+		return nil, false
+	}
+	return o.Batch, true
+}
+
+// HasBatch returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasBatch() bool {
+	if o != nil && !IsNil(o.Batch) {
+		return true
+	}
+
+	return false
+}
+
+// SetBatch gets a reference to the given TemplatePostRequestBatch and assigns it to the Batch field.
+func (o *TemplatePostRequest) SetBatch(v TemplatePostRequestBatch) {
+	o.Batch = &v
+}
+
+// GetText returns the Text field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetText() string {
+	if o == nil || IsNil(o.Text) {
+		var ret string
+		return ret
+	}
+	return *o.Text
+}
+
+// GetTextOk returns a tuple with the Text field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetTextOk() (*string, bool) {
+	if o == nil || IsNil(o.Text) {
+		return nil, false
+	}
+	return o.Text, true
+}
+
+// HasText returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasText() bool {
+	if o != nil && !IsNil(o.Text) {
+		return true
+	}
+
+	return false
+}
+
+// SetText gets a reference to the given string and assigns it to the Text field.
+func (o *TemplatePostRequest) SetText(v string) {
+	o.Text = &v
+}
+
+// GetMessage returns the Message field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetMessage() string {
+	if o == nil || IsNil(o.Message) {
+		var ret string
+		return ret
+	}
+	return *o.Message
+}
+
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.Message) {
+		return nil, false
+	}
+	return o.Message, true
+}
+
+// HasMessage returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasMessage() bool {
+	if o != nil && !IsNil(o.Message) {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given string and assigns it to the Message field.
+func (o *TemplatePostRequest) SetMessage(v string) {
+	o.Message = &v
+}
+
+// GetIcon returns the Icon field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetIcon() string {
+	if o == nil || IsNil(o.Icon) {
+		var ret string
+		return ret
+	}
+	return *o.Icon
+}
+
+// GetIconOk returns a tuple with the Icon field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetIconOk() (*string, bool) {
+	if o == nil || IsNil(o.Icon) {
+		return nil, false
+	}
+	return o.Icon, true
+}
+
+// HasIcon returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasIcon() bool {
+	if o != nil && !IsNil(o.Icon) {
+		return true
+	}
+
+	return false
+}
+
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
+func (o *TemplatePostRequest) SetIcon(v string) {
+	o.Icon = &v
+}
+
+// GetUrl returns the Url field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetUrl() string {
+	if o == nil || IsNil(o.Url) {
+		var ret string
+		return ret
+	}
+	return *o.Url
+}
+
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.Url) {
+		return nil, false
+	}
+	return o.Url, true
+}
+
+// HasUrl returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasUrl() bool {
+	if o != nil && !IsNil(o.Url) {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given string and assigns it to the Url field.
+func (o *TemplatePostRequest) SetUrl(v string) {
+	o.Url = &v
+}
+
+// GetBlocks returns the Blocks field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetBlocks() []map[string]interface{} {
+	if o == nil || IsNil(o.Blocks) {
+		var ret []map[string]interface{}
+		return ret
+	}
+	return o.Blocks
+}
+
+// GetBlocksOk returns a tuple with the Blocks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetBlocksOk() ([]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Blocks) {
+		return nil, false
+	}
+	return o.Blocks, true
+}
+
+// HasBlocks returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasBlocks() bool {
+	if o != nil && !IsNil(o.Blocks) {
+		return true
+	}
+
+	return false
+}
+
+// SetBlocks gets a reference to the given []map[string]interface{} and assigns it to the Blocks field.
+func (o *TemplatePostRequest) SetBlocks(v []map[string]interface{}) {
+	o.Blocks = v
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise.
+func (o *TemplatePostRequest) GetUsername() string {
+	if o == nil || IsNil(o.Username) {
+		var ret string
+		return ret
+	}
+	return *o.Username
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TemplatePostRequest) GetUsernameOk() (*string, bool) {
+	if o == nil || IsNil(o.Username) {
+		return nil, false
+	}
+	return o.Username, true
+}
+
+// HasUsername returns a boolean if a field has been set.
+func (o *TemplatePostRequest) HasUsername() bool {
+	if o != nil && !IsNil(o.Username) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given string and assigns it to the Username field.
+func (o *TemplatePostRequest) SetUsername(v string) {
+	o.Username = &v
+}
+
 func (o TemplatePostRequest) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -79,11 +690,60 @@ func (o TemplatePostRequest) MarshalJSON() ([]byte, error) {
 func (o TemplatePostRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["templateId"] = o.TemplateId
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
+	if !IsNil(o.Html) {
+		toSerialize["html"] = o.Html
 	}
-
+	if !IsNil(o.PreviewText) {
+		toSerialize["previewText"] = o.PreviewText
+	}
+	if !IsNil(o.Internal) {
+		toSerialize["internal"] = o.Internal
+	}
+	if !IsNil(o.Subject) {
+		toSerialize["subject"] = o.Subject
+	}
+	if !IsNil(o.SenderName) {
+		toSerialize["senderName"] = o.SenderName
+	}
+	if !IsNil(o.SenderEmail) {
+		toSerialize["senderEmail"] = o.SenderEmail
+	}
+	if !IsNil(o.Migration) {
+		toSerialize["migration"] = o.Migration
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.RedirectURL) {
+		toSerialize["redirectURL"] = o.RedirectURL
+	}
+	if !IsNil(o.ImageURL) {
+		toSerialize["imageURL"] = o.ImageURL
+	}
+	if !IsNil(o.Instant) {
+		toSerialize["instant"] = o.Instant
+	}
+	if !IsNil(o.Batch) {
+		toSerialize["batch"] = o.Batch
+	}
+	if !IsNil(o.Text) {
+		toSerialize["text"] = o.Text
+	}
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.Blocks) {
+		toSerialize["blocks"] = o.Blocks
+	}
+	if !IsNil(o.Username) {
+		toSerialize["username"] = o.Username
+	}
 	return toSerialize, nil
 }
 
@@ -111,20 +771,15 @@ func (o *TemplatePostRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varTemplatePostRequest := _TemplatePostRequest{}
 
-	err = json.Unmarshal(data, &varTemplatePostRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTemplatePostRequest)
 
 	if err != nil {
 		return err
 	}
 
 	*o = TemplatePostRequest(varTemplatePostRequest)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "templateId")
-		o.AdditionalProperties = additionalProperties
-	}
 
 	return err
 }

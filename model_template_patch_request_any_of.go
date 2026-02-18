@@ -17,14 +17,20 @@ import (
 // checks if the TemplatePatchRequestAnyOf type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TemplatePatchRequestAnyOf{}
 
-// TemplatePatchRequestAnyOf struct for TemplatePatchRequestAnyOf
+// TemplatePatchRequestAnyOf Properties for updating an EMAIL channel template. All fields are optional; only provided fields are updated.
 type TemplatePatchRequestAnyOf struct {
-	Html        *string `json:"html,omitempty"`
-	Internal    *string `json:"internal,omitempty"`
-	Subject     *string `json:"subject,omitempty"`
-	SenderName  *string `json:"senderName,omitempty"`
+	// HTML body of the email.
+	Html *string `json:"html,omitempty"`
+	// Internal editor representation of the email content (e.g. Bee or Redactor JSON). Used for editing and component embedding; the actual email sent to recipients uses the html field.
+	Internal *string `json:"internal,omitempty"`
+	// Email subject line.
+	Subject *string `json:"subject,omitempty"`
+	// Sender display name.
+	SenderName *string `json:"senderName,omitempty"`
+	// Sender email address.
 	SenderEmail *string `json:"senderEmail,omitempty"`
-	Migration   *string `json:"migration,omitempty"`
+	// Migration metadata (e.g. from template migration).
+	Migration *string `json:"migration,omitempty"`
 }
 
 // NewTemplatePatchRequestAnyOf instantiates a new TemplatePatchRequestAnyOf object

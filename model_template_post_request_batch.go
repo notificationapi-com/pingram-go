@@ -16,40 +16,40 @@ import (
 	"fmt"
 )
 
-// checks if the TemplatePatchRequestAnyOf1Batch type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &TemplatePatchRequestAnyOf1Batch{}
+// checks if the TemplatePostRequestBatch type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TemplatePostRequestBatch{}
 
-// TemplatePatchRequestAnyOf1Batch In-app batch delivery: title, redirect URL, and image URL shown when the notification is delivered in batch.
-type TemplatePatchRequestAnyOf1Batch struct {
+// TemplatePostRequestBatch Copy for batch delivery.
+type TemplatePostRequestBatch struct {
 	Title       string `json:"title"`
 	RedirectURL string `json:"redirectURL"`
 	ImageURL    string `json:"imageURL"`
 }
 
-type _TemplatePatchRequestAnyOf1Batch TemplatePatchRequestAnyOf1Batch
+type _TemplatePostRequestBatch TemplatePostRequestBatch
 
-// NewTemplatePatchRequestAnyOf1Batch instantiates a new TemplatePatchRequestAnyOf1Batch object
+// NewTemplatePostRequestBatch instantiates a new TemplatePostRequestBatch object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTemplatePatchRequestAnyOf1Batch(title string, redirectURL string, imageURL string) *TemplatePatchRequestAnyOf1Batch {
-	this := TemplatePatchRequestAnyOf1Batch{}
+func NewTemplatePostRequestBatch(title string, redirectURL string, imageURL string) *TemplatePostRequestBatch {
+	this := TemplatePostRequestBatch{}
 	this.Title = title
 	this.RedirectURL = redirectURL
 	this.ImageURL = imageURL
 	return &this
 }
 
-// NewTemplatePatchRequestAnyOf1BatchWithDefaults instantiates a new TemplatePatchRequestAnyOf1Batch object
+// NewTemplatePostRequestBatchWithDefaults instantiates a new TemplatePostRequestBatch object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTemplatePatchRequestAnyOf1BatchWithDefaults() *TemplatePatchRequestAnyOf1Batch {
-	this := TemplatePatchRequestAnyOf1Batch{}
+func NewTemplatePostRequestBatchWithDefaults() *TemplatePostRequestBatch {
+	this := TemplatePostRequestBatch{}
 	return &this
 }
 
 // GetTitle returns the Title field value
-func (o *TemplatePatchRequestAnyOf1Batch) GetTitle() string {
+func (o *TemplatePostRequestBatch) GetTitle() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -60,7 +60,7 @@ func (o *TemplatePatchRequestAnyOf1Batch) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
-func (o *TemplatePatchRequestAnyOf1Batch) GetTitleOk() (*string, bool) {
+func (o *TemplatePostRequestBatch) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,12 +68,12 @@ func (o *TemplatePatchRequestAnyOf1Batch) GetTitleOk() (*string, bool) {
 }
 
 // SetTitle sets field value
-func (o *TemplatePatchRequestAnyOf1Batch) SetTitle(v string) {
+func (o *TemplatePostRequestBatch) SetTitle(v string) {
 	o.Title = v
 }
 
 // GetRedirectURL returns the RedirectURL field value
-func (o *TemplatePatchRequestAnyOf1Batch) GetRedirectURL() string {
+func (o *TemplatePostRequestBatch) GetRedirectURL() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -84,7 +84,7 @@ func (o *TemplatePatchRequestAnyOf1Batch) GetRedirectURL() string {
 
 // GetRedirectURLOk returns a tuple with the RedirectURL field value
 // and a boolean to check if the value has been set.
-func (o *TemplatePatchRequestAnyOf1Batch) GetRedirectURLOk() (*string, bool) {
+func (o *TemplatePostRequestBatch) GetRedirectURLOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,12 +92,12 @@ func (o *TemplatePatchRequestAnyOf1Batch) GetRedirectURLOk() (*string, bool) {
 }
 
 // SetRedirectURL sets field value
-func (o *TemplatePatchRequestAnyOf1Batch) SetRedirectURL(v string) {
+func (o *TemplatePostRequestBatch) SetRedirectURL(v string) {
 	o.RedirectURL = v
 }
 
 // GetImageURL returns the ImageURL field value
-func (o *TemplatePatchRequestAnyOf1Batch) GetImageURL() string {
+func (o *TemplatePostRequestBatch) GetImageURL() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -108,7 +108,7 @@ func (o *TemplatePatchRequestAnyOf1Batch) GetImageURL() string {
 
 // GetImageURLOk returns a tuple with the ImageURL field value
 // and a boolean to check if the value has been set.
-func (o *TemplatePatchRequestAnyOf1Batch) GetImageURLOk() (*string, bool) {
+func (o *TemplatePostRequestBatch) GetImageURLOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -116,11 +116,11 @@ func (o *TemplatePatchRequestAnyOf1Batch) GetImageURLOk() (*string, bool) {
 }
 
 // SetImageURL sets field value
-func (o *TemplatePatchRequestAnyOf1Batch) SetImageURL(v string) {
+func (o *TemplatePostRequestBatch) SetImageURL(v string) {
 	o.ImageURL = v
 }
 
-func (o TemplatePatchRequestAnyOf1Batch) MarshalJSON() ([]byte, error) {
+func (o TemplatePostRequestBatch) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -128,7 +128,7 @@ func (o TemplatePatchRequestAnyOf1Batch) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o TemplatePatchRequestAnyOf1Batch) ToMap() (map[string]interface{}, error) {
+func (o TemplatePostRequestBatch) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["title"] = o.Title
 	toSerialize["redirectURL"] = o.RedirectURL
@@ -136,7 +136,7 @@ func (o TemplatePatchRequestAnyOf1Batch) ToMap() (map[string]interface{}, error)
 	return toSerialize, nil
 }
 
-func (o *TemplatePatchRequestAnyOf1Batch) UnmarshalJSON(data []byte) (err error) {
+func (o *TemplatePostRequestBatch) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -160,53 +160,53 @@ func (o *TemplatePatchRequestAnyOf1Batch) UnmarshalJSON(data []byte) (err error)
 		}
 	}
 
-	varTemplatePatchRequestAnyOf1Batch := _TemplatePatchRequestAnyOf1Batch{}
+	varTemplatePostRequestBatch := _TemplatePostRequestBatch{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTemplatePatchRequestAnyOf1Batch)
+	err = decoder.Decode(&varTemplatePostRequestBatch)
 
 	if err != nil {
 		return err
 	}
 
-	*o = TemplatePatchRequestAnyOf1Batch(varTemplatePatchRequestAnyOf1Batch)
+	*o = TemplatePostRequestBatch(varTemplatePostRequestBatch)
 
 	return err
 }
 
-type NullableTemplatePatchRequestAnyOf1Batch struct {
-	value *TemplatePatchRequestAnyOf1Batch
+type NullableTemplatePostRequestBatch struct {
+	value *TemplatePostRequestBatch
 	isSet bool
 }
 
-func (v NullableTemplatePatchRequestAnyOf1Batch) Get() *TemplatePatchRequestAnyOf1Batch {
+func (v NullableTemplatePostRequestBatch) Get() *TemplatePostRequestBatch {
 	return v.value
 }
 
-func (v *NullableTemplatePatchRequestAnyOf1Batch) Set(val *TemplatePatchRequestAnyOf1Batch) {
+func (v *NullableTemplatePostRequestBatch) Set(val *TemplatePostRequestBatch) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTemplatePatchRequestAnyOf1Batch) IsSet() bool {
+func (v NullableTemplatePostRequestBatch) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTemplatePatchRequestAnyOf1Batch) Unset() {
+func (v *NullableTemplatePostRequestBatch) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTemplatePatchRequestAnyOf1Batch(val *TemplatePatchRequestAnyOf1Batch) *NullableTemplatePatchRequestAnyOf1Batch {
-	return &NullableTemplatePatchRequestAnyOf1Batch{value: val, isSet: true}
+func NewNullableTemplatePostRequestBatch(val *TemplatePostRequestBatch) *NullableTemplatePostRequestBatch {
+	return &NullableTemplatePostRequestBatch{value: val, isSet: true}
 }
 
-func (v NullableTemplatePatchRequestAnyOf1Batch) MarshalJSON() ([]byte, error) {
+func (v NullableTemplatePostRequestBatch) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTemplatePatchRequestAnyOf1Batch) UnmarshalJSON(src []byte) error {
+func (v *NullableTemplatePostRequestBatch) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

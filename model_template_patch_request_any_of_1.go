@@ -17,13 +17,16 @@ import (
 // checks if the TemplatePatchRequestAnyOf1 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TemplatePatchRequestAnyOf1{}
 
-// TemplatePatchRequestAnyOf1 struct for TemplatePatchRequestAnyOf1
+// TemplatePatchRequestAnyOf1 Properties for updating an INAPP_WEB channel template. All fields are optional; only provided fields are updated. instant and batch configure delivery-mode-specific copy (real-time vs batched).
 type TemplatePatchRequestAnyOf1 struct {
-	Title       *string                            `json:"title,omitempty"`
-	RedirectURL *string                            `json:"redirectURL,omitempty"`
-	ImageURL    *string                            `json:"imageURL,omitempty"`
-	Instant     *TemplatePatchRequestAnyOf1Instant `json:"instant,omitempty"`
-	Batch       *TemplatePatchRequestAnyOf1Batch   `json:"batch,omitempty"`
+	// Notification title (in-app).
+	Title *string `json:"title,omitempty"`
+	// URL to open when the user taps the notification.
+	RedirectURL *string `json:"redirectURL,omitempty"`
+	// Image URL shown in the in-app notification.
+	ImageURL *string                            `json:"imageURL,omitempty"`
+	Instant  *TemplatePatchRequestAnyOf1Instant `json:"instant,omitempty"`
+	Batch    *TemplatePatchRequestAnyOf1Batch   `json:"batch,omitempty"`
 }
 
 // NewTemplatePatchRequestAnyOf1 instantiates a new TemplatePatchRequestAnyOf1 object

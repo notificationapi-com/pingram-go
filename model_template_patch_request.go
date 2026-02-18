@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// TemplatePatchRequest struct for TemplatePatchRequest
+// TemplatePatchRequest Request body for updating a template. Use EMAIL fields (html, subject, senderName, etc.) when channel is EMAIL. Use INAPP_WEB fields (title, redirectURL, imageURL, instant, batch) when channel is INAPP_WEB. Other channels have their own shapes; only include properties that apply to the channel.
 type TemplatePatchRequest struct {
 	TemplatePatchRequestAnyOf  *TemplatePatchRequestAnyOf
 	TemplatePatchRequestAnyOf1 *TemplatePatchRequestAnyOf1

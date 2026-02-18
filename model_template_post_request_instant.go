@@ -16,39 +16,38 @@ import (
 	"fmt"
 )
 
-// checks if the TemplatePatchRequestAnyOf1Instant type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &TemplatePatchRequestAnyOf1Instant{}
+// checks if the TemplatePostRequestInstant type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TemplatePostRequestInstant{}
 
-// TemplatePatchRequestAnyOf1Instant In-app instant delivery: title, redirect URL, and image URL shown when the notification is delivered in real time.
-type TemplatePatchRequestAnyOf1Instant struct {
+// TemplatePostRequestInstant Copy for instant (real-time) delivery.
+type TemplatePostRequestInstant struct {
 	Title       *string `json:"title,omitempty"`
 	RedirectURL *string `json:"redirectURL,omitempty"`
-	// Required for instant. Image URL shown in the in-app notification.
-	ImageURL string `json:"imageURL"`
+	ImageURL    string  `json:"imageURL"`
 }
 
-type _TemplatePatchRequestAnyOf1Instant TemplatePatchRequestAnyOf1Instant
+type _TemplatePostRequestInstant TemplatePostRequestInstant
 
-// NewTemplatePatchRequestAnyOf1Instant instantiates a new TemplatePatchRequestAnyOf1Instant object
+// NewTemplatePostRequestInstant instantiates a new TemplatePostRequestInstant object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTemplatePatchRequestAnyOf1Instant(imageURL string) *TemplatePatchRequestAnyOf1Instant {
-	this := TemplatePatchRequestAnyOf1Instant{}
+func NewTemplatePostRequestInstant(imageURL string) *TemplatePostRequestInstant {
+	this := TemplatePostRequestInstant{}
 	this.ImageURL = imageURL
 	return &this
 }
 
-// NewTemplatePatchRequestAnyOf1InstantWithDefaults instantiates a new TemplatePatchRequestAnyOf1Instant object
+// NewTemplatePostRequestInstantWithDefaults instantiates a new TemplatePostRequestInstant object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTemplatePatchRequestAnyOf1InstantWithDefaults() *TemplatePatchRequestAnyOf1Instant {
-	this := TemplatePatchRequestAnyOf1Instant{}
+func NewTemplatePostRequestInstantWithDefaults() *TemplatePostRequestInstant {
+	this := TemplatePostRequestInstant{}
 	return &this
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *TemplatePatchRequestAnyOf1Instant) GetTitle() string {
+func (o *TemplatePostRequestInstant) GetTitle() string {
 	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
@@ -58,7 +57,7 @@ func (o *TemplatePatchRequestAnyOf1Instant) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TemplatePatchRequestAnyOf1Instant) GetTitleOk() (*string, bool) {
+func (o *TemplatePostRequestInstant) GetTitleOk() (*string, bool) {
 	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
@@ -66,7 +65,7 @@ func (o *TemplatePatchRequestAnyOf1Instant) GetTitleOk() (*string, bool) {
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *TemplatePatchRequestAnyOf1Instant) HasTitle() bool {
+func (o *TemplatePostRequestInstant) HasTitle() bool {
 	if o != nil && !IsNil(o.Title) {
 		return true
 	}
@@ -75,12 +74,12 @@ func (o *TemplatePatchRequestAnyOf1Instant) HasTitle() bool {
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *TemplatePatchRequestAnyOf1Instant) SetTitle(v string) {
+func (o *TemplatePostRequestInstant) SetTitle(v string) {
 	o.Title = &v
 }
 
 // GetRedirectURL returns the RedirectURL field value if set, zero value otherwise.
-func (o *TemplatePatchRequestAnyOf1Instant) GetRedirectURL() string {
+func (o *TemplatePostRequestInstant) GetRedirectURL() string {
 	if o == nil || IsNil(o.RedirectURL) {
 		var ret string
 		return ret
@@ -90,7 +89,7 @@ func (o *TemplatePatchRequestAnyOf1Instant) GetRedirectURL() string {
 
 // GetRedirectURLOk returns a tuple with the RedirectURL field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TemplatePatchRequestAnyOf1Instant) GetRedirectURLOk() (*string, bool) {
+func (o *TemplatePostRequestInstant) GetRedirectURLOk() (*string, bool) {
 	if o == nil || IsNil(o.RedirectURL) {
 		return nil, false
 	}
@@ -98,7 +97,7 @@ func (o *TemplatePatchRequestAnyOf1Instant) GetRedirectURLOk() (*string, bool) {
 }
 
 // HasRedirectURL returns a boolean if a field has been set.
-func (o *TemplatePatchRequestAnyOf1Instant) HasRedirectURL() bool {
+func (o *TemplatePostRequestInstant) HasRedirectURL() bool {
 	if o != nil && !IsNil(o.RedirectURL) {
 		return true
 	}
@@ -107,12 +106,12 @@ func (o *TemplatePatchRequestAnyOf1Instant) HasRedirectURL() bool {
 }
 
 // SetRedirectURL gets a reference to the given string and assigns it to the RedirectURL field.
-func (o *TemplatePatchRequestAnyOf1Instant) SetRedirectURL(v string) {
+func (o *TemplatePostRequestInstant) SetRedirectURL(v string) {
 	o.RedirectURL = &v
 }
 
 // GetImageURL returns the ImageURL field value
-func (o *TemplatePatchRequestAnyOf1Instant) GetImageURL() string {
+func (o *TemplatePostRequestInstant) GetImageURL() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -123,7 +122,7 @@ func (o *TemplatePatchRequestAnyOf1Instant) GetImageURL() string {
 
 // GetImageURLOk returns a tuple with the ImageURL field value
 // and a boolean to check if the value has been set.
-func (o *TemplatePatchRequestAnyOf1Instant) GetImageURLOk() (*string, bool) {
+func (o *TemplatePostRequestInstant) GetImageURLOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -131,11 +130,11 @@ func (o *TemplatePatchRequestAnyOf1Instant) GetImageURLOk() (*string, bool) {
 }
 
 // SetImageURL sets field value
-func (o *TemplatePatchRequestAnyOf1Instant) SetImageURL(v string) {
+func (o *TemplatePostRequestInstant) SetImageURL(v string) {
 	o.ImageURL = v
 }
 
-func (o TemplatePatchRequestAnyOf1Instant) MarshalJSON() ([]byte, error) {
+func (o TemplatePostRequestInstant) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -143,7 +142,7 @@ func (o TemplatePatchRequestAnyOf1Instant) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o TemplatePatchRequestAnyOf1Instant) ToMap() (map[string]interface{}, error) {
+func (o TemplatePostRequestInstant) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
@@ -155,7 +154,7 @@ func (o TemplatePatchRequestAnyOf1Instant) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
-func (o *TemplatePatchRequestAnyOf1Instant) UnmarshalJSON(data []byte) (err error) {
+func (o *TemplatePostRequestInstant) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -177,53 +176,53 @@ func (o *TemplatePatchRequestAnyOf1Instant) UnmarshalJSON(data []byte) (err erro
 		}
 	}
 
-	varTemplatePatchRequestAnyOf1Instant := _TemplatePatchRequestAnyOf1Instant{}
+	varTemplatePostRequestInstant := _TemplatePostRequestInstant{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTemplatePatchRequestAnyOf1Instant)
+	err = decoder.Decode(&varTemplatePostRequestInstant)
 
 	if err != nil {
 		return err
 	}
 
-	*o = TemplatePatchRequestAnyOf1Instant(varTemplatePatchRequestAnyOf1Instant)
+	*o = TemplatePostRequestInstant(varTemplatePostRequestInstant)
 
 	return err
 }
 
-type NullableTemplatePatchRequestAnyOf1Instant struct {
-	value *TemplatePatchRequestAnyOf1Instant
+type NullableTemplatePostRequestInstant struct {
+	value *TemplatePostRequestInstant
 	isSet bool
 }
 
-func (v NullableTemplatePatchRequestAnyOf1Instant) Get() *TemplatePatchRequestAnyOf1Instant {
+func (v NullableTemplatePostRequestInstant) Get() *TemplatePostRequestInstant {
 	return v.value
 }
 
-func (v *NullableTemplatePatchRequestAnyOf1Instant) Set(val *TemplatePatchRequestAnyOf1Instant) {
+func (v *NullableTemplatePostRequestInstant) Set(val *TemplatePostRequestInstant) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTemplatePatchRequestAnyOf1Instant) IsSet() bool {
+func (v NullableTemplatePostRequestInstant) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTemplatePatchRequestAnyOf1Instant) Unset() {
+func (v *NullableTemplatePostRequestInstant) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTemplatePatchRequestAnyOf1Instant(val *TemplatePatchRequestAnyOf1Instant) *NullableTemplatePatchRequestAnyOf1Instant {
-	return &NullableTemplatePatchRequestAnyOf1Instant{value: val, isSet: true}
+func NewNullableTemplatePostRequestInstant(val *TemplatePostRequestInstant) *NullableTemplatePostRequestInstant {
+	return &NullableTemplatePostRequestInstant{value: val, isSet: true}
 }
 
-func (v NullableTemplatePatchRequestAnyOf1Instant) MarshalJSON() ([]byte, error) {
+func (v NullableTemplatePostRequestInstant) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTemplatePatchRequestAnyOf1Instant) UnmarshalJSON(src []byte) error {
+func (v *NullableTemplatePostRequestInstant) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
