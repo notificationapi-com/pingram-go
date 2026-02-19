@@ -25,12 +25,12 @@ type GetSendersResponseInner struct {
 	Sender               string    `json:"sender"`
 	Status               string    `json:"status"`
 	LastSync             time.Time `json:"lastSync"`
-	Type                 string    `json:"type"`
 	VerificationTokens   []string  `json:"verificationTokens,omitempty"`
 	MailFromDomainStatus *string   `json:"mailFromDomainStatus,omitempty"`
 	CreatedAt            string    `json:"createdAt"`
 	PrivateDKIMKey       *string   `json:"privateDKIMKey,omitempty"`
 	ReminderSentAt       *string   `json:"reminderSentAt,omitempty"`
+	Selector             string    `json:"selector"`
 }
 
 type _GetSendersResponseInner GetSendersResponseInner
@@ -39,13 +39,13 @@ type _GetSendersResponseInner GetSendersResponseInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetSendersResponseInner(sender string, status string, lastSync time.Time, type_ string, createdAt string) *GetSendersResponseInner {
+func NewGetSendersResponseInner(sender string, status string, lastSync time.Time, createdAt string, selector string) *GetSendersResponseInner {
 	this := GetSendersResponseInner{}
 	this.Sender = sender
 	this.Status = status
 	this.LastSync = lastSync
-	this.Type = type_
 	this.CreatedAt = createdAt
+	this.Selector = selector
 	return &this
 }
 
@@ -127,30 +127,6 @@ func (o *GetSendersResponseInner) GetLastSyncOk() (*time.Time, bool) {
 // SetLastSync sets field value
 func (o *GetSendersResponseInner) SetLastSync(v time.Time) {
 	o.LastSync = v
-}
-
-// GetType returns the Type field value
-func (o *GetSendersResponseInner) GetType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value
-// and a boolean to check if the value has been set.
-func (o *GetSendersResponseInner) GetTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Type, true
-}
-
-// SetType sets field value
-func (o *GetSendersResponseInner) SetType(v string) {
-	o.Type = v
 }
 
 // GetVerificationTokens returns the VerificationTokens field value if set, zero value otherwise.
@@ -305,6 +281,30 @@ func (o *GetSendersResponseInner) SetReminderSentAt(v string) {
 	o.ReminderSentAt = &v
 }
 
+// GetSelector returns the Selector field value
+func (o *GetSendersResponseInner) GetSelector() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Selector
+}
+
+// GetSelectorOk returns a tuple with the Selector field value
+// and a boolean to check if the value has been set.
+func (o *GetSendersResponseInner) GetSelectorOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Selector, true
+}
+
+// SetSelector sets field value
+func (o *GetSendersResponseInner) SetSelector(v string) {
+	o.Selector = v
+}
+
 func (o GetSendersResponseInner) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -318,7 +318,6 @@ func (o GetSendersResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize["sender"] = o.Sender
 	toSerialize["status"] = o.Status
 	toSerialize["lastSync"] = o.LastSync
-	toSerialize["type"] = o.Type
 	if !IsNil(o.VerificationTokens) {
 		toSerialize["verificationTokens"] = o.VerificationTokens
 	}
@@ -332,6 +331,7 @@ func (o GetSendersResponseInner) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ReminderSentAt) {
 		toSerialize["reminderSentAt"] = o.ReminderSentAt
 	}
+	toSerialize["selector"] = o.Selector
 	return toSerialize, nil
 }
 
@@ -343,8 +343,8 @@ func (o *GetSendersResponseInner) UnmarshalJSON(data []byte) (err error) {
 		"sender",
 		"status",
 		"lastSync",
-		"type",
 		"createdAt",
+		"selector",
 	}
 
 	allProperties := make(map[string]interface{})

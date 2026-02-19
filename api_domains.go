@@ -38,7 +38,7 @@ func (r ApiDomainsAddDomainRequest) Execute() ([]GetSendersResponseInner, *http.
 }
 
 /*
-DomainsAddDomain Request to verify a new sender domain or email address
+DomainsAddDomain Request to verify a new sender domain
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiDomainsAddDomainRequest
@@ -243,7 +243,7 @@ func (r ApiDomainsListDomainsRequest) Execute() ([]GetSendersResponseInner, *htt
 }
 
 /*
-DomainsListDomains Get all sender domains and email addresses configured for the account
+DomainsListDomains Get all sender domains configured for the account
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiDomainsListDomainsRequest
