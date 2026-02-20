@@ -1,3 +1,3 @@
-module github.com/notificationapi-com/pingram-go
+module github.com/pingram-io/pingram-go
 
 go 1.23

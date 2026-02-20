@@ -5,7 +5,7 @@ Official Go SDK for Pingram - Send notifications via Email, SMS, Push, In-App, a
 ## Installation
 
 ```bash
-go get github.com/notificationapi-com/pingram-go
+go get github.com/pingram-io/pingram-go
 ```
 
 ## Quick Start
@@ -17,7 +17,7 @@ import (
     "context"
     "log"
 
-    pingram "github.com/notificationapi-com/pingram-go"
+    pingram "github.com/pingram-io/pingram-go"
 )
 
 func main() {
