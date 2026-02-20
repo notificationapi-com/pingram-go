@@ -25,8 +25,7 @@ func main() {
 
     body := pingram.SenderPostBody{
         Type: pingram.PtrString("welcome_email"),
-        User: &pingram.GetUsersResponseUsersInner{
-            Id:    "user_123",
+        To: &pingram.SenderPostBodyTo{
             Email: pingram.PtrString("user@example.com"),
         },
         Email: &pingram.SenderPostBodyEmail{
